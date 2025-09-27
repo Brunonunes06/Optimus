@@ -1,0 +1,108 @@
+#transform {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+h1 {
+    position:  fixed;
+    top: 2rem;
+    left: 2rem;
+    opacity: 0.25;
+    margin: 0;
+}
+
+[for=transform] {
+  color: transparent;
+  position: fixed;
+  inset: 0;
+  color: transparent;
+  font-weight: bold;
+  height: 100vh;
+  width: 100vw;
+  cursor: pointer;
+  transform: translate3d(0, 0, 500vmin);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  z-index: 2;
+}
+
+body > [for=transform] span {
+    display: block;
+}
+
+:root:has([for=transform] span:nth-of-type(1):hover) h1 {
+    --truck-turn: -10deg;
+    --head-turn: -20deg;
+}
+:root:has([for=transform] span:nth-of-type(2):hover) h1 {
+    --truck-turn: -5deg;
+    --head-turn: -10deg;
+}
+:root:has([for=transform] span:nth-of-type(3):hover) h1 {
+    --truck-turn: 0deg;
+    --head-turn: 0deg;
+}
+:root:has([for=transform] span:nth-of-type(4):hover) h1 {
+    --truck-turn: 5deg;
+    --head-turn: 10deg;
+}
+:root:has([for=transform] span:nth-of-type(5):hover) h1 {
+    --truck-turn: 10deg;
+    --head-turn: 20deg;
+}
+
+.optimus__head-reactor {
+    height: 100%;
+    width: 100%;
+}
+:root:has(#transform:checked) .optimus__head-reactor {
+    transform: rotateY(var(--head-turn, 0deg));
+    transition: transform 0.125s;
+}
+:root:has(#transform:checked) .scene-turner {
+    transform: rotateZ(var(--truck-turn, 0deg));
+    transition: transform 0.125s;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+    touch-action: none;
+}
+
+:root {
+    --size: 4;
+    --optimus-rotation-y: -24;
+    --optimus-rotation-x: -32;
+    /* Optimus Colors */
+
+    /* Transition speed */
+    --transition-speed: 0.2s;
+
+    /* Colors */
+    --blue-1 hsl(215, 100%, 45%);
+    --blue-2 hsl(215, 100%, 40%);
+    --blue-3 hsl(215, 100%, 35%);
+    --blue-4 hsl(215, 100%, 30%);
+    --blue-5 hsl(215, 100%, 25%);
+    --grey-1: hsl(228, 3%, 65%);
+    --grey-2: hsl(228, 3%, 60%);
+    --grey-3: hsl(228, 3%, 55%);
+    --grey-4: hsl(228, 3%, 50%);
+    --grey-5: hsl(228, 3%, 45%);
+    --red-1: hsl();
+    --red-2: hsl();
+    --red-3: hsl();
+    --red-4: hsl();
+    --red-5: hsl();
+}
+
